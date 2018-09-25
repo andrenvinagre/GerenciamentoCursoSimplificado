@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GerenciamentoCursoSimplificadoAPI", "GerenciamentoCursoSimplificadoAPI\GerenciamentoCursoSimplificadoAPI.csproj", "{18566E0E-E488-4C9A-BBBE-D2047942A379}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18566E0E-E488-4C9A-BBBE-D2047942A379}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18566E0E-E488-4C9A-BBBE-D2047942A379}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18566E0E-E488-4C9A-BBBE-D2047942A379}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18566E0E-E488-4C9A-BBBE-D2047942A379}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {789BD70A-83DF-4C95-B69E-86AB497C4136}
+	EndGlobalSection
+EndGlobal
