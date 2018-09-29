@@ -9,9 +9,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GerenciamentoCursoSimplificadoAPI.Controllers
 {
-    //[Route("api/Aluno")]
     public class AlunoController : Controller
     {
+        private TCCDataContext context;
+
+        public AlunoController(TCCDataContext context)
+        {
+            this.context = context;
+        }
+
         [HttpGet]
         [Route("api/Aluno/Ping")]
         public IActionResult Ping()
@@ -25,32 +31,30 @@ namespace GerenciamentoCursoSimplificadoAPI.Controllers
         {
             if (string.IsNullOrWhiteSpace(email))
             {
-                return Ok("Campo E-MAIL em branco!");
+                return Ok(new { codigo = 3, mensagem = "Campo E-MAIL em branco!" });
             }
 
             if (string.IsNullOrWhiteSpace(senha))
             {
-                return Ok("Campo SENHA em branco!");
+                return Ok(new { codigo = 4, mensagem = "Campo SENHA em branco!" });
             }
 
-            Conn mySqlGet = new Conn();
-
-            var aluno = mySqlGet.RealizarLogin(email);
+            var aluno = context.Aluno.FirstOrDefault(x => x.Email == email);
 
             if (aluno != null)
             {
                 if (aluno.Senha == senha)
                 {
-                    return Ok("Login realizado com sucesso!");                    
+                    return Ok(new { codigo = 0, mensagem = "Login realizado com sucesso!", aluno });
                 }
                 else
                 {
-                    return Ok("E-MAIL cadastrado no sistema, porém senha está errada!");
+                    return Ok(new { codigo = 1, mensagem = "E-MAIL cadastrado no sistema, porém senha está errada!", aluno });
                 }
             }
             else
             {
-                return Ok("Usuário informou dados válido, mas não está cadastrado no sistema!");
+                return Ok(new { codigo = 2, mensagem = "Usuário informou dados válidos, mas não está cadastrado no sistema!", aluno });
             }
         }
     }
